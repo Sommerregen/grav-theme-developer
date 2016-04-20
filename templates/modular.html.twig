@@ -1,0 +1,45 @@
+{% extends 'default.html.twig' %}
+
+{% set collection = page.collection() %}
+
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+{% block body_content %}
+  <div class="container sections-wrapper">
+    <div class="row">
+      <div class="primary col-md-8 col-sm-12 col-xs-12">
+        {% for module in collection if module.header.section_position != 'sidebar' %}
+          <section class="{{ module.header.section_class | default(_self.pageLinkName(module.menu)) }} section">
+            <div class="section-inner">
+              <h2 class="heading">{{ module.title }}</h2>
+              <div class="content">{{ module.content }}</div>
+            </div>
+          </section>
+        {% endfor %}
+      </div>
+
+      <div class="secondary col-md-4 col-sm-12 col-xs-12">
+        {% for module in collection if module.header.section_position == 'sidebar' %}
+          <aside class="{{ module.header.section_class | default(_self.pageLinkName(module.menu)) }} aside section">
+            <div class="section-inner">
+              <h2 class="heading {% if module.header.hide_title %}sr-only{% endif %}">{{ module.title }}</h2>
+              <div class="content">{{ module.content }}</div>
+            </div>
+          </aside>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block body_js %}
+  {{ parent() }}
+
+  {% if theme_config.github %}
+    {% include 'plugins/github_activity.html.twig' %}
+  {% endif %}
+
+  {% if theme_config.rss_feed %}
+    {% include 'plugins/jquery_rss.html.twig' %}
+  {% endif %}
+{% endblock %}

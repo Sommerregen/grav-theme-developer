@@ -1,0 +1,9 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  <ul class="list-unstyled">
+    {% for item in collection %}
+      <li><i class="fa fa-headphones"></i> <a href="{{ item.header.link }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

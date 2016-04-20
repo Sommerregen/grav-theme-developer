@@ -1,0 +1,12 @@
+{{ page.content }}
+
+{% if page.header.chart %}
+  <p><a href="https://github.com/{{ theme_config.github }}?tab=repositories"><img class="img-responsive" src="{{ page.header.chart }}" alt="GitHub Contributions Chart" /></a></p>
+{% endif %}
+
+{% if theme_config.github %}
+  <div id="ghfeed" class="ghfeed"></div>
+{% else %}
+  <p>This theme use <a href="http://caseyscarborough.com/projects/github-activity/">this plugin</a> for view the Github activity stream.</p>
+  <p>Update your theme config on the key:<br /><code>github: "github username"</code></p>
+{% endif %}

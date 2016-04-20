@@ -1,0 +1,8 @@
+<script>
+  jQuery(document).ready(function($) {
+    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
+    if (typeof GitHubActivity != 'undefined') {
+      GitHubActivity.feed({ username: "{{ config.themes.developer.github }}", selector: "#ghfeed" });
+    }
+  });
+</script>

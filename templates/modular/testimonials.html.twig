@@ -1,0 +1,16 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  {% for item in collection %}
+    <div class="item">
+      <blockquote class="quote">
+        <p><i class="fa fa-quote-left"></i>{{ item.summary | striptags }}</p>
+      </blockquote>
+      <p class="source"><span class="name">{{ item.header.author }}</span><br /><span class="title">{{ item.title }}</span></p>
+    </div>
+  {% endfor %}
+
+  {% if theme_config.linkedin %}
+    <p><a class="more-link" href="{{ theme_config.linkedin }}"><i class="fa fa-external-link"></i> More on Linkedin</a></p>
+  {% endif %}
+{% endif %}

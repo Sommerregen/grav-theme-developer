@@ -1,0 +1,9 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  <ul class="list-unstyled">
+    {% for item in collection %}
+      <li><i class="fa fa-calendar"></i> <a href="{{ item.header.link | default('#') }}">{{ item.title }}</a> ({{ item.header.location }})</li>
+    {% endfor %}
+  </ul>
+{% endif %}

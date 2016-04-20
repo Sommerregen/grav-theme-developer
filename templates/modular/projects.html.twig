@@ -1,0 +1,17 @@
+{% set collection = page.collection() %}
+
+{% if collection %}
+  {% for item in collection %}
+    <div class="item">
+      <h3 class="title">
+        <a {% if item.header.link.url %}href="{{ item.header.link.url }}"{% endif %}>{{ item.title }}</a>
+        {% if item.header.label %}<span class="label label-theme">{{ item.header.label }}</span>{% endif %}
+      </h3>
+      <p class="summary">{{ item.summary | striptags }}</p>
+
+      {% if item.header.link.url and item.header.link.title %}
+        <p><a class="more-link" href="{{ item.header.link.url }}"><i class="fa fa-external-link"></i> {{ item.header.link.title }}</a></p>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endif %}

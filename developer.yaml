@@ -1,0 +1,68 @@
+enabled: true
+
+# Profile
+profile:
+  name: "James Lee"
+  desc: "Web App Developer"
+  avatar_url: "http://themes.3rdwavemedia.com/demo/developer/assets/images/profile.png"
+  informations:
+    - icon: "map-marker"
+      label: "Location"
+      url: ""
+      text: "San Francisco, US"
+
+    - icon: "envelope-o"
+      label: "Email"
+      url: "mailto:jameslee@website.com"
+      text: "jameslee@website.com"
+
+    - icon: "link"
+      label: "Website"
+      url: "http://website.com"
+      text: "http://website.com"
+
+# Github
+github: "caseyscarborough"
+
+# Coderwall
+coderwall: "tnajdek"
+
+# RSS Feed
+rss_feed:
+  url: "http://feeds.feedburner.com/TechCrunch/startups"
+  limit: 3
+  effect: "slideFastSynced" # valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
+
+# Linkedin
+linkedin: "#"
+
+# Social Networks
+social:
+  networks:
+    - url: "#"
+      icon: "twitter"
+      title:
+
+    - url: "#"
+      icon: "google-plus"
+      title:
+
+    - url: "#"
+      icon: "linkedin"
+      title:
+
+    - url: "#"
+      icon: "github-alt"
+      title:
+
+    - url: "#"
+      icon: "hacker-news"
+      title:
+
+# Grav streams
+streams:
+  schemes:
+    theme:
+      type: ReadOnlyStream
+      paths:
+        - user/themes/developer

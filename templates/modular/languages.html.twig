@@ -1,0 +1,17 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  <ul class="list-unstyled">
+    {% for item in collection %}
+      <li class="item">
+        <span class="title"><strong>{{ item.title }}:</strong></span>
+        <span class="level">
+          {{ item.header.level.text }} <br class="visible-xs"/>
+          {% for star in 1..item.header.level.value %}
+            <i class="fa fa-star"></i>
+          {% endfor %}
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

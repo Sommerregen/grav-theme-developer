@@ -1,0 +1,38 @@
+{% set collection = page.collection() %}
+
+{% if page.content %}
+  <div class="row">
+    <div class="col-lg-3 col-lg-offset-2">
+      <img src="{{ page.media.images | first | default('http://placehold.it/300x300') }}" class="img-rounded img-responsive" />
+    </div>
+
+    <div class="col-lg-5">
+      {{ page.content }}
+    </div>
+  </div>
+{% endif %}
+
+{% if collection | length and page.content %}
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <hr />
+    </div>
+  </div>
+{% endif %}
+
+{% if collection | length %}
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="row">
+
+        {% for item in collection %}
+          <div class="col-md-4 text-center about-item">
+            <h3><i class="fa fa-{{ item.header.icon | default('bolt') }}"></i> {{ item.title }}</h3>
+            <div class="small">{{ item.content }}</div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+{% endif %}

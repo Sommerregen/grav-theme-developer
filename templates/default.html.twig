@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      {% block head_meta %}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        {% for meta in page.metadata %}
+          <meta {% if meta.name %}name="{{ meta.name }}" {% endif %}{% if meta.http_equiv %}http-equiv="{{ meta.http_equiv }}" {% endif %}{% if meta.charset %}charset="{{ meta.charset }}" {% endif %}{% if meta.property %}property="{{ meta.property }}" {% endif %}{% if meta.content %}content="{{ meta.content }}" {% endif %}/>
+        {% endfor %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="{{ site.metadata.description }}" />
+      {% endblock %}
+
+      {% block head_title %}
+        <title>{% if page.header.title and (page.url != base_url or 'error' == page.template) %}{{ page.header.title }} | {% endif %}{{ site.title }}</title>
+      {% endblock %}
+
+      <link rel="canonical" href="{{ page.url(true) }}" />
+      <link rel="shortcut icon" href="{{ theme_url }}/assets/images/favicon.ico" />
+
+      {% block head_css %}
+        {% do assets.add('theme://assets/plugins/bootstrap/css/bootstrap.min.css', 106) %}
+        {% do assets.add('theme://assets/plugins/font-awesome/css/font-awesome.css', 105) %}
+
+        {% if theme_config.github %}
+          {% do assets.add('http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css', 104) %}
+          {% do assets.add('http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.css', 103) %}
+        {% endif %}
+
+        {% do assets.add('theme://assets/css/styles.css', 102) %}
+
+        {# Webfonts #}
+        {% do assets.addCss('http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic', 101) %}
+        {% do assets.addCss('http://fonts.googleapis.com/css?family=Montserrat:400,700', 100) %}
+
+        {{ assets.css() }}
+      {% endblock %}
+
+      {% block head_css_extra %}{% endblock %}
+
+      {% block head_js %}
+        {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries #}
+        {# WARNING: Respond.js doesn't work if you view the page via file:// #}
+        {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+          {% do assets.addJs('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') %}
+          {% do assets.addJs('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') %}
+        {% endif %}
+      {% endblock %}
+    {% endblock %}
+  </head>
+
+  {% block body %}<body id="page-top" class="index">{% endblock %}
+    {% block body_header %}
+      <header class="header">
+        <div class="container">
+          {% set profile_image = (theme_config.profile.avatar_url) ?: 'http://gravatar.com/avatar/' ~ site.author.email | md5 ~ '?s=180' %}
+          <img class="profile-image img-responsive pull-left img-circle" src="{{ profile_image }}" alt="{{ theme_config.profile.name | default(site.author.name) }}" height="180" />
+
+          <div class="profile-content pull-left">
+            <h1 class="name">{{ theme_config.profile.name | default(site.author.name) }}</h1>
+            <h2 class="desc">{{ theme_config.profile.desc | default(site.metadata.description) }}</h2>
+
+            {% if theme_config.social.networks | length %}
+              <ul class="social list-inline">
+                {% for network in theme_config.social.networks %}
+                  <li class="{% if network == theme_config.social.networks | last %}last-item{% endif %}"><a href="{{ network.url }}"><i class="fa fa-{{ network.icon }}"></i>{{ network.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <a class="btn btn-cta-primary pull-right" href="{{ theme_config.contact_url | default(base_url) }}"><i class="fa fa-paper-plane"></i> Contact Me</a>
+        </div>
+      </header>
+    {% endblock %}
+
+    {% block body_content %}
+      <div class="container sections-wrapper">
+        <div class="row">
+          <div class="primary col-md-12 col-sm-12 col-xs-12">
+            <section class="{{ page.header.section_class | default(page.slug) }} section">
+              <div class="section-inner">
+                <h2 class="heading">{{ page.title }}</h2>
+                <div class="content">{{ page.content }}</div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+
+    {% block body_footer %}
+      <footer class="footer">
+        <div class="container text-center">
+          <small class="copyright">Copyright &copy; {{ 'NOW' | date('Y') }} {{ site.title }} | Design: <a href="http://themes.3rdwavemedia.com">3rd Wave Media</a> | Grav Theme: <a href="https://nunopress.com">NunoPress LLC</a></small>
+        </div>
+      </footer>
+    {% endblock %}
+
+    {% block body_js %}
+      {% do assets.add('theme://assets/plugins/jquery-1.11.1.min.js', 106) %}
+      {% do assets.add('theme://assets/plugins/jquery-migrate-1.2.1.min.js', 105) %}
+      {% do assets.add('theme://assets/plugins/bootstrap/js/bootstrap.min.js', 104) %}
+
+      {% if theme_config.rss_feed %}
+        {% do assets.add('theme://assets/plugins/jquery-rss/dist/jquery.rss.min.js', 103) %}
+      {% endif %}
+
+      {% if theme_config.github %}
+        {% do assets.add('http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js', 102) %}
+        {% do assets.add('http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.js', 101) %}
+      {% endif %}
+
+      {% do assets.add('theme://assets/js/main.js', 100) %}
+
+      {{ assets.js() }}
+    {% endblock %}
+  </body>
+</html>

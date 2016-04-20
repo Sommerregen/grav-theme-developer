@@ -1,0 +1,25 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  <ul class="list-unstyled">
+    {% for item in collection %}
+      <li>
+        {% if item.header.link %}
+          <a href="{{ item.header.link }}" target="_blank"><i class="fa fa-external-link"></i> {{ item.title }}</a>
+        {% else %}
+          {{ item.content }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<hr/>
+
+<p>This responsive HTML5 CSS3 site template is handcrafted by UX designer <a href="https://www.linkedin.com/in/xiaoying" target="_blank">Xiaoying Riley</a> at <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a> for developers and is <strong>FREE</strong> under the <a class="dotted-link" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a></p>
+
+<p>We will improve or add new features to this template based on users' feedback so follow us on twitter to get notified when a new version is out!</p>
+
+<a class="btn btn-cta-secondary btn-follow" href="https://twitter.com/3rdwave_themes" target="_blank"><i class="fa fa-twitter"></i> Follow us</a>
+
+<a class="btn btn-cta-primary btn-download" href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/" target="_blank"><i class="fa fa-download"></i> I want to download</a>

@@ -1,0 +1,14 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  {% for item in collection %}
+    <div class="item">
+      <h3 class="title">{{ item.title }} - <span class="place"><a href="#">{{ item.header.place }}</a></span> <span class="year">({{ item.header.year }})</span></h3>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+
+  {% if theme_config.coderwall %}
+    <p><a class="more-link" href="https://coderwall.com/{{ theme_config.coderwall }}"><i class="fa fa-external-link"></i> More on Coderwall</a></p>
+  {% endif %}
+{% endif %}

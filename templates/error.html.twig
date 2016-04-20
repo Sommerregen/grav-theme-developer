@@ -1,0 +1,16 @@
+{% extends 'default.html.twig' %}
+
+{% block body_content %}
+  <div class="container sections-wrapper">
+    <div class="row">
+      <div class="primary col-md-12 col-sm-12 col-xs-12">
+        <section class="{{ page.header.section_class | default(page.slug) }} section">
+          <div class="section-inner">
+            <h2 class="heading">Error {{ page.header.http_response_code }}</h2>
+            <div class="content">{{ page.content }}</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+{% endblock %}

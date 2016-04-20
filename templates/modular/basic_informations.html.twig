@@ -1,0 +1,10 @@
+{% if theme_config.profile.informations | length %}
+  <ul class="list-unstyled">
+    {% for info in theme_config.profile.informations %}
+      <li>
+        {% if info.icon %}<i class="fa fa-{{ info.icon }}"></i>{% endif %}
+        {% if info.label %}<span class="sr-only">{{ info.label }}:</span>{% endif %} {% if info.url %}<a href="{{ info.url }}">{{ info.text }}</a>{% else %}{{ info.text }}{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

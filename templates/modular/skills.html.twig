@@ -1,0 +1,17 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  <p class="intro">{{ page.summary | striptags }}</p>
+
+  <div class="skillset">
+    {% for item in collection %}
+      <div class="item">
+        <h3 class="level-title">{{ item.title }} <span class="level-label" {% if item.header.tooltip %}data-toggle="tooltip" data-placement="left" data-animation="true" title="{{ item.header.tooltip | e('html_attr') }}"{% endif %}>{{ item.header.level.text }}</span></h3>
+        <div class="level-bar">
+          <div class="level-bar-inner" data-level="{{ item.header.level.value }}%">
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

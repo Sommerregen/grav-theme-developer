@@ -1,0 +1,10 @@
+{% set collection = page.collection() %}
+
+{% if collection | length %}
+  {% for item in collection %}
+    <div class="item">
+      <h3 class="title"><i class="fa fa-graduation-cap"></i> {{ item.title }}</h3>
+      <h4 class="university">{{ item.header.university }} <span class="year">({{ item.header.year }})</span></h4>
+    </div>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,62 @@
+{% set collection = page.collection() %}
+
+{% if collection %}
+  {% for item in collection %}
+    {% if loop.first %}
+      <div class="item featured text-center">
+        <h3 class="title">
+          <a {% if item.header.link.url %}href="{{ item.header.link.url }}"{% endif %}>{{ item.title }}</a>
+          {% if item.header.label %}<span class="label label-theme">{{ item.header.label }}</span>{% endif %}
+        </h3>
+
+        <p class="summary">{{ item.summary | striptags }}</p>
+
+        {% if item.header.cover %}
+          <div class="featured-image">
+            <a {% if item.header.link.url %}href="{{ item.header.link.url }}"{% endif %}>
+              <img class="img-responsive project-image" src="{{ item.header.cover }}" alt="project {{ item.slug }}" />
+            </a>
+
+            {% if item.header.ribbon %}
+              <div class="ribbon">
+                <div class="text">{{ item.header.ribbon }}</div>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <div class="desc text-left">{{ item.content }}</div>
+
+        {% if item.header.link.url and item.header.link.title %}
+          <a class="btn btn-cta-secondary" href="{{ item.link.url }}"><i class="fa fa-thumbs-o-up"></i> {{ item.header.link.title }}</a>
+        {% endif %}
+      </div>
+
+    {% else %}
+
+      <div class="item row">
+        <a class="col-md-4 col-sm-4 col-xs-12" {% if item.header.link.url %}href="{{ item.header.link.url }}"{% endif %}>
+          {% if item.header.cover %}
+            <img class="img-responsive project-image" src="{{ item.header.cover }}" alt="project {{ item.slug }}" />
+          {% endif %}
+        </a>
+        <div class="desc col-md-8 col-sm-8 col-xs-12">
+          <h3 class="title">
+            <a {% if item.header.link.url %}href="{{ item.header.link.url }}"{% endif %}>{{ item.title }}</a>
+            {% if item.header.label %}<span class="label label-theme">{{ item.header.label }}</span>{% endif %}
+          </h3>
+
+          <div>{{ item.content }}</div>
+
+          {% if item.header.link.url and item.header.link.title %}
+            <p><a class="more-link" href="{{ project.header.link.url }}"><i class="fa fa-external-link"></i> {{ item.header.link.title }}</a></p>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if not loop.last %}
+      <hr class="divider" />
+    {% endif %}
+  {% endfor %}
+{% endif %}

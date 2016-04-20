@@ -1,0 +1,18 @@
+name: Developer
+version: 2.0.4
+description: "Developer is a free responsive **Grav** theme designed to help developers promote their work."
+icon: clipboard
+author:
+  name: Sommerregen
+  email: sommerregen@benjamin-regler.de
+  url: http://benjamin-regler.de
+homepage: https://github.com/sommerregen/grav-theme-developer
+demo: http://themes.benjamin-regler.de/developer/
+keywords: [bootstrap, theme, cv, resume, responsive, html5, css3, jquery, github]
+docs: https://github.com/sommerregen/grav-theme-developer/blob/master/README.md
+bugs: https://github.com/sommerregen/grav-theme-developer/issues
+license: MIT/GPL
+
+form:
+  validation: strict
+  fields:
