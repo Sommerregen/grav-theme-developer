@@ -1,3 +1,11 @@
+# v2.1.0
+## 01/10/2017
+
+2. [](#improved)
+  * Update font awesome to v4.7 [#5](https://github.com/Sommerregen/grav-theme-developer/pull/5) (Thanks to [@huy-nguyen](https://github.com/huy-nguyen))
+3. [](#bugfix)
+  * Fix button link [#3](https://github.com/Sommerregen/grav-theme-developer/pull/3)
+
 # v2.0.4
 ## 01/13/2015
 
@@ -8,10 +16,10 @@
 ## 01/09/2015
 
 1. [](#bugfix)
-* Small fix.
+  * Small fix.
 
 1. [](#improved)
-* Update [README](README.md).
+  * Update [README](README.md).
 
 # v2.0.2
 ## 01/04/2015
