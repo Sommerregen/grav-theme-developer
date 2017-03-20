@@ -1,3 +1,9 @@
+# v2.1.1
+## 03/20/2017
+
+3. [](#bugfix)
+  * Fixed mixed content issues (#6)[https://github.com/Sommerregen/grav-theme-developer/issues/6]
+
 # v2.1.0
 ## 01/10/2017
 

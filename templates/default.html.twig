@@ -26,15 +26,15 @@
         {% do assets.add('theme://assets/plugins/font-awesome/css/font-awesome.css', 105) %}
 
         {% if theme_config.github %}
-          {% do assets.add('http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css', 104) %}
-          {% do assets.add('http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.css', 103) %}
+          {% do assets.add('//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css', 104) %}
+          {% do assets.add('//caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.css', 103) %}
         {% endif %}
 
         {% do assets.add('theme://assets/css/styles.css', 102) %}
 
         {# Webfonts #}
-        {% do assets.addCss('http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic', 101) %}
-        {% do assets.addCss('http://fonts.googleapis.com/css?family=Montserrat:400,700', 100) %}
+        {% do assets.addCss('//fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic', 101) %}
+        {% do assets.addCss('//fonts.googleapis.com/css?family=Montserrat:400,700', 100) %}
 
         {{ assets.css() }}
       {% endblock %}
@@ -45,8 +45,8 @@
         {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries #}
         {# WARNING: Respond.js doesn't work if you view the page via file:// #}
         {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-          {% do assets.addJs('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') %}
-          {% do assets.addJs('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') %}
+          {% do assets.addJs('//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') %}
+          {% do assets.addJs('//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') %}
         {% endif %}
       {% endblock %}
     {% endblock %}
@@ -56,7 +56,7 @@
     {% block body_header %}
       <header class="header">
         <div class="container">
-          {% set profile_image = (theme_config.profile.avatar_url) ?: 'http://gravatar.com/avatar/' ~ site.author.email | md5 ~ '?s=180' %}
+          {% set profile_image = (theme_config.profile.avatar_url) ?: '//gravatar.com/avatar/' ~ site.author.email | md5 ~ '?s=180' %}
           <img class="profile-image img-responsive pull-left img-circle" src="{{ profile_image }}" alt="{{ theme_config.profile.name | default(site.author.name) }}" height="180" />
 
           <div class="profile-content pull-left">
@@ -94,7 +94,7 @@
     {% block body_footer %}
       <footer class="footer">
         <div class="container text-center">
-          <small class="copyright">Copyright &copy; {{ 'NOW' | date('Y') }} {{ site.title }} | Design: <a href="http://themes.3rdwavemedia.com">3rd Wave Media</a> | Grav Theme: <a href="https://nunopress.com">NunoPress LLC</a></small>
+          <small class="copyright">Copyright &copy; {{ 'NOW' | date('Y') }} {{ site.title }} | Design: <a href="//themes.3rdwavemedia.com">3rd Wave Media</a> | Grav Theme: <a href="//nunopress.com">NunoPress LLC</a></small>
         </div>
       </footer>
     {% endblock %}
@@ -109,8 +109,8 @@
       {% endif %}
 
       {% if theme_config.github %}
-        {% do assets.add('http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js', 102) %}
-        {% do assets.add('http://caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.js', 101) %}
+        {% do assets.add('//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js', 102) %}
+        {% do assets.add('//caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.js', 101) %}
       {% endif %}
 
       {% do assets.add('theme://assets/js/main.js', 100) %}
