@@ -1,3 +1,4 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,8 +27,8 @@
         {% do assets.add('theme://assets/plugins/font-awesome/css/font-awesome.css', 105) %}
 
         {% if theme_config.github %}
-          {% do assets.add('//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css', 104) %}
-          {% do assets.add('//caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.css', 103) %}
+          {% do assets.add('theme://assets/plugins/octicons/octicons.min.css', 104) %}
+          {% do assets.add('theme://assets/plugins/github-activity/css/github-activity.min.css', 103) %}
         {% endif %}
 
         {% do assets.add('theme://assets/css/styles.css', 102) %}
@@ -109,8 +110,8 @@
       {% endif %}
 
       {% if theme_config.github %}
-        {% do assets.add('//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js', 102) %}
-        {% do assets.add('//caseyscarborough.github.io/github-activity/github-activity-0.1.0.min.js', 101) %}
+        {% do assets.add('theme://assets/plugins/mustache-0.7.2.min.js', 102) %}
+        {% do assets.add('theme://assets/plugins/github-activity/js/github-activity.min.js', 101) %}
       {% endif %}
 
       {% do assets.add('theme://assets/js/main.js', 100) %}
