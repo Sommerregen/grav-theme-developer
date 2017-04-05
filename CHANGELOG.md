@@ -1,8 +1,16 @@
+# v2.2.0
+## 04/05/2017
+
+2. [](#improved)
+  * Added "github-activity" and "octicons" to theme package
+3. [](#bugfix)
+  * Fixed Github activity page not found error [#7](hhttps://github.com/Sommerregen/grav-theme-developer/issues/7) (Github Activity URL 404)
+
 # v2.1.1
 ## 03/20/2017
 
 3. [](#bugfix)
-  * Fixed mixed content issues (#6)[https://github.com/Sommerregen/grav-theme-developer/issues/6]
+  * Fixed mixed content issues [#6](https://github.com/Sommerregen/grav-theme-developer/issues/6) (Mixed content)
 
 # v2.1.0
 ## 01/10/2017

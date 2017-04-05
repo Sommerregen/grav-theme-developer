@@ -1,6 +1,7 @@
 {% extends 'default.html.twig' %}
 
 {% set collection = page.collection() %}
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 
 {% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
 
